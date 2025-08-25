@@ -1,4 +1,4 @@
-6.26  (26-AGO-2025) 
+6.26c  (26c-AGO-2025) 
 alexc
 stbernar
 vhernand
