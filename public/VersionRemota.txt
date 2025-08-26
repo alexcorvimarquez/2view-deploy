@@ -1,0 +1,13 @@
+6.26  (26-AGO-2025) 
+Versión VersionRemota.txt 26/08/2025 # 1 08:15
+alexc
+stbernar
+vhernand
+vcuenca
+PGutierr
+raco    
+dcortijo
+spestana
+7tmodeCaballeria
+9thSymphony
+
