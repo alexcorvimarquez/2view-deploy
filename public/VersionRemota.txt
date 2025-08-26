@@ -1,5 +1,6 @@
 6.26  (26-AGO-2025) 
-Versión VersionRemota.txt 26/08/2025 # 1 08:15
+Versión VersionRemota.txt 26/08/2025 # 1 08:15   #2 11:45
+
 alexc
 stbernar
 vhernand
