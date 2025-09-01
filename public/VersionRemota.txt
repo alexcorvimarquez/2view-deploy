@@ -1,8 +1,9 @@
 6.01  (01-SEP-2025) 
 Versión VersionRemota.txt 
-26/08/2025  V1 08:15  V2 11:45
-01/09/2025  V1 09:00  V2 12:00
+26/08/2025 08:15 11:45
+01/09/2025 09:00 12:00 22:00
 
+USUARIOS AUTORIZADOS:
 alexc
 stbernar
 vhernand
@@ -11,6 +12,5 @@ PGutierr
 raco    
 dcortijo
 spestana
-7tmodeCaballeria
-9thSymphony
+
 
