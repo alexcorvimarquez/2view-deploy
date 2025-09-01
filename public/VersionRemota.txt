@@ -1,5 +1,7 @@
-6.27  (27-AGO-2025) 
-Versión VersionRemota.txt 26/08/2025 # 1 08:15   #2 11:45
+6.01  (01-SEP-2025) 
+Versión VersionRemota.txt 
+26/08/2025  V1 08:15   V2 11:45
+01/09/2025  V1 09:00
 
 alexc
 stbernar
