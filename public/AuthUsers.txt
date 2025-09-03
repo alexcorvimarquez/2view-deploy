@@ -1,7 +1,7 @@
 02/SEP/2025 07:00 
 
 USUARIOS AUTORIZADOS:
-alexc
+
 stbernar
 vhernand
 vcuenca
