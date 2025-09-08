@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2View Install</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <style>
+    .logo-circle {
+      border-radius: 50%;
+      background-color: transparent;
+      object-fit: cover;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+    }
+    .card-step:hover {
+      transform: scale(1.10);
+      transition: transform 0.2s ease-in-out;
+    }
+  </style>
+</head>
+<body class="relative min-h-screen text-white">
+  <!-- Fondo panorámico -->
+  <div class="absolute inset-0 bg-cover bg-center"
+       style="background-image: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1920&q=80');"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-blue-900/70 to-blue-800/70"></div>
+
+  <!-- Contenido principal -->
+  <div class="relative z-10 max-w-3xl mx-auto pt-12 pb-12 px-4 transform scale-90 origin-top">
+
+    <!-- Cabecera -->
+    <header class="flex items-center gap-4 mb-8">
+      <img src="2ViewICONO.webp" alt="2View Logo" class="w-20 h-20 drop-shadow-lg logo-circle">
+      <h1 class="text-4xl font-bold">Bienvenido a la Instalación de 2View</h1>
+    </header>
+
+    <!-- Login solo email -->
+    <div id="auth-box" class="backdrop-blur-md bg-white/10 p-6 rounded-2xl border border-white/20 shadow-lg">
+      <h2 class="text-xl font-semibold mb-4">Acceso de Usuario</h2>
+      <form id="auth-form" class="space-y-4">
+        <input type="email" id="email" placeholder="Introduce tu email"
+               class="w-full p-2 rounded bg-black/30 text-white focus:outline-none" required>
+        <button type="submit"
+                class="w-full py-2 rounded bg-blue-600 hover:bg-blue-700 transition font-semibold">
+          Entrar
+        </button>
+      </form>
+      <p id="auth-message" class="mt-2 text-red-300 text-sm"></p>
+    </div>
+
+    <!-- Pasos (ocultos hasta login) -->
+    <div id="install-steps" class="hidden space-y-8 mt-8">
+      <div class="card-step backdrop-blur-md bg-white/10 p-6 rounded-2xl border border-white/20 shadow-lg">
+        <h2 class="text-xl font-semibold mb-2">1. Crear Carpeta</h2>
+        <p>Crea manualmente la carpeta <code class="bg-black/30 px-2 py-1 rounded">C:\2ViewLocal</code> en tu equipo.</p>
+      </div>
+
+      <div class="card-step backdrop-blur-md bg-white/10 p-6 rounded-2xl border border-white/20 shadow-lg">
+        <h2 class="text-xl font-semibold mb-2">2. Configurar Excel</h2>
+        <p>En Excel: <strong>Opciones → Centro de confianza → Ubicaciones de confianza</strong> y añade <code class="bg-black/30 px-2 py-1 rounded">C:\2ViewLocal</code>.</p>
+      </div>
+
+      <div class="card-step backdrop-blur-md bg-white/10 p-6 rounded-2xl border border-white/20 shadow-lg">
+        <h2 class="text-xl font-semibold mb-2">3. Descargar Instalador</h2>
+        <p>Descarga el fichero instalador y colócalo dentro de la carpeta <code class="bg-black/30 px-2 py-1 rounded">C:\2ViewLocal</code>.</p>
+        <a href="https://twoview-deploy.onrender.com/public/2ViewInstall.xlsm" download
+           class="mt-4 inline-block px-3 py-1.5 text-white text-xs font-semibold rounded-lg bg-white/20 border border-white/30 shadow-md backdrop-blur-md transition transform hover:scale-110 hover:bg-white/30">
+          📥 Descargar 2ViewInstall.xlsm
+        </a>
+      </div>
+
+      <div class="card-step backdrop-blur-md bg-white/10 p-6 rounded-2xl border border-white/20 shadow-lg">
+        <h2 class="text-xl font-semibold mb-2">4. Ejecutar Instalador</h2>
+        <p>Abre el archivo <code class="bg-black/30 px-2 py-1 rounded">2ViewInstall.xlsm</code> desde <code>C:\2ViewLocal</code> y sigue las instrucciones. 2View App estará instalada para su uso.</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center mt-12 text-sm text-gray-200">
+      © 2025 2View Project
+    </footer>
+  </div>
+
+  <script type="module">
+    import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+
+    const SUPABASE_URL = "https://pvtezsjhpthdbpymdxhe.supabase.co"; 
+    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB2dGV6c2pocHRoZGJweW1keGhlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTcyMjk4ODYsImV4cCI6MjA3MjgwNTg4Nn0.07g6aXXhLQRUMunneir36WHYzMciB68hebUIBJqOkSk";
+    const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    const authForm = document.getElementById("auth-form");
+    const authMessage = document.getElementById("auth-message");
+    const authBox = document.getElementById("auth-box");
+    const installSteps = document.getElementById("install-steps");
+    const emailInput = document.getElementById("email");
+
+    // precargar último email
+    emailInput.value = localStorage.getItem("lastEmail") || "";
+
+    authForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = emailInput.value.trim();
+
+      const { data, error } = await supabase
+        .from("auth_users")
+        .select("id")
+        .eq("email", email)
+        .maybeSingle();
+
+      if (error) {
+        authMessage.textContent = "❌ Error de conexión con el servidor.";
+      } else if (data) {
+        localStorage.setItem("lastEmail", email);
+        authBox.classList.add("hidden");
+        installSteps.classList.remove("hidden");
+      } else {
+        authMessage.textContent = "❌ Usuario no autorizado.";
+      }
+    });
+  </script>
+</body>
+</html>
+
