@@ -63,16 +63,16 @@
 
       <div class="card-step backdrop-blur-md bg-white/10 p-6 rounded-2xl border border-white/20 shadow-lg">
         <h2 class="text-xl font-semibold mb-2">3. Descargar Instalador</h2>
-        <p>Descarga el fichero zip instalador y descomprímelo dentro de la carpeta <code class="bg-black/30 px-2 py-1 rounded">C:\2ViewLocal</code>.</p>
-        <a href="https://twoview-deploy.onrender.com/public/2ViewInstall.zip" download
+        <p>Descarga el fichero <strong>2ViewSetup.zip</strong> y descomprímelo dentro de la carpeta <code class="bg-black/30 px-2 py-1 rounded">C:\2ViewLocal</code>.</p>
+        <a href="https://twoview-deploy.onrender.com/public/2ViewSetup.zip" download
            class="mt-4 inline-block px-3 py-1.5 text-white text-xs font-semibold rounded-lg bg-white/20 border border-white/30 shadow-md backdrop-blur-md transition transform hover:scale-110 hover:bg-white/30">
-           📥 Descargar 2ViewInstall
+           📥 Descargar 2ViewSetup.zip
         </a>
       </div>
 
       <div class="card-step backdrop-blur-md bg-white/10 p-6 rounded-2xl border border-white/20 shadow-lg">
         <h2 class="text-xl font-semibold mb-2">4. Ejecutar Instalador</h2>
-        <p>Abre el archivo <code class="bg-black/30 px-2 py-1 rounded">2ViewInstall.xlsm</code> desde <code>C:\2ViewLocal</code> y sigue las instrucciones. 2View App estará instalada para su uso.</p>
+        <p>Abre el archivo <code class="bg-black/30 px-2 py-1 rounded">2ViewInstall.xlsm</code> desde <code>C:\2ViewLocal</code>, sigue las instrucciones y 2View App estará instalada para su uso.</p>
       </div>
     </div>
 
@@ -85,8 +85,8 @@
   <script type="module">
     import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 
-    const SUPABASE_URL = "https://pvtezsjhpthdbpymdxhe.supabase.co"; 
-    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB2dGV6c2pocHRoZGJweW1keGhlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTcyMjk4ODYsImV4cCI6MjA3MjgwNTg4Nn0.07g6aXXhLQRUMunneir36WHYzMciB68hebUIBJqOkSk";
+    const SUPABASE_URL = "https://pvtezsjhpthdbpymdxhe.supabase.co";  
+    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB2dGV6c2pocHRoZGJweW1keGhlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTcyMjk4ODYsImV4cCI6MjA3MjgwNTg4Nn0.07g6aXXhLQRUMunneir36WHYzMciB68hebUIBJqOkSk"; // 🔒 tu API Key
     const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
     const authForm = document.getElementById("auth-form");
@@ -121,4 +121,3 @@
   </script>
 </body>
 </html>
-
